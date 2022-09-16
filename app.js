@@ -8,10 +8,11 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const helmet = require("helmet");
 var compression = require("compression");
+const checkHost= require("../Traferer-Url-Authentication/middleware/check-host");
 
 // Requiring Routes
 
-const myAppRoutes = require("./routes/myApp.routes");
+// const myAppRoutes = require("./routes/myApp.routes");
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
@@ -21,6 +22,14 @@ app.get("/", function (req, res) {
   res.status(200).send({
     message: "Express backend server",
   });
+});
+
+app.get("/myApp/external",checkHost, function (req, res) {
+  console.log("entered function"); 
+   res.send({
+    status:200,
+    message:"worked",
+   })
 });
 
 //app.set('port', (3000));
@@ -33,7 +42,7 @@ app.use(helmet());
 app.use(compression());
 
 // Routes which should handle requests
-app.use("/myApp", myAppRoutes);
+// app.use("/myApp", myAppRoutes);
 
 // ...
 server.listen(app.get("port"), () => {
