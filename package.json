@@ -1,0 +1,20 @@
+{
+  "name": "url_referer_check",
+  "version": "1.0.0",
+  "description": "checks the referer calling the url",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "author": "Muhammad Shahzaib contact =+923485501891 email=sa30967965@gmail.com",
+  "license": "ISC",
+  "dependencies": {
+    "compression": "^1.7.4",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.2",
+    "express": "^4.18.1",
+    "helmet": "^6.0.0",
+    "mongoose": "^6.6.1"
+  }
+}
