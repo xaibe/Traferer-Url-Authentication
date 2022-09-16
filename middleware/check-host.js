@@ -1,15 +1,18 @@
 module.exports = (req, res, next) => {
-    
+    try{
         const referer=req.headers.referer;
         console.log(referer);
-        if(referer==="http://localhost:3000/"){
+        if(referer==="http://localhost:3002/"){
             next();
         }
         else{
-            next({
-                message: 'Host Auth failed Unauthorized',
-                status: 401
-            });  
+            throw error;
         }
-     
+    }catch(error){
+        res.send({
+            status:401,
+            message:'Host Auth failed Unauthorized',
+           })
+
+    }
 };
